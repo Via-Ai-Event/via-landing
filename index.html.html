@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIA | סרטוני AI לחתונה</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a25;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --accent-purple: #8b5cf6;
+            --accent-blue: #3b82f6;
+            --accent-pink: #ec4899;
+            --accent-gold: #f59e0b;
+            --glow-purple: rgba(139, 92, 246, 0.4);
+            --glow-blue: rgba(59, 130, 246, 0.3);
+            --gradient-main: linear-gradient(135deg, var(--accent-purple), var(--accent-blue), var(--accent-pink));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, var(--glow-purple) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, var(--glow-blue) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(236, 72, 153, 0.1) 0%, transparent 40%);
+            animation: bgPulse 15s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.6; }
+            33% { transform: translate(2%, -2%) rotate(1deg); opacity: 0.8; }
+            66% { transform: translate(-1%, 1%) rotate(-1deg); opacity: 0.7; }
+        }
+
+        /* Stars Effect */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent),
+                radial-gradient(2px 2px at 160px 120px, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 230px 80px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 300px 150px, rgba(255,255,255,0.15), transparent),
+                radial-gradient(1px 1px at 350px 200px, rgba(255,255,255,0.25), transparent);
+            background-size: 400px 400px;
+            animation: twinkle 8s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            padding: 1.5rem 3rem;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--bg-primary), transparent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 4px;
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 50px;
+            border: 1px dashed var(--text-secondary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-right: 2rem;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--accent-purple);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--accent-purple);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.2s ease-out 0.2s both;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #fff 50%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1.2s ease-out 0.3s both;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 1.2s ease-out 0.5s both;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-main);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1.2s ease-out 0.7s both;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px var(--glow-purple);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--text-secondary);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Characters Grid */
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .character-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .character-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .character-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-main);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .character-card:hover::before {
+            opacity: 1;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 40%, var(--glow-purple) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, var(--glow-blue) 0%, transparent 50%);
+            opacity: 0.3;
+        }
+
+        .play-button {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .play-button:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.1);
+        }
+
+        .play-button svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            margin-right: -3px;
+        }
+
+        .video-note {
+            position: absolute;
+            bottom: 1rem;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+
+        .character-info {
+            padding: 1.5rem;
+        }
+
+        .character-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .character-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .character-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent-purple);
+            margin-top: 1rem;
+        }
+
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            position: relative;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px 20px 0 0;
+        }
+
+        /* Nova specific */
+        .card-nova .video-placeholder::before {
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(99, 102, 241, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.4) 0%, transparent 50%);
+        }
+        .card-nova .character-tag { background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.3); color: #818cf8; }
+
+        /* Gaia specific */
+        .card-gaia .video-placeholder::before {
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(34, 197, 94, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(16, 185, 129, 0.4) 0%, transparent 50%);
+        }
+        .card-gaia .character-tag { background: rgba(34, 197, 94, 0.15); border-color: rgba(34, 197, 94, 0.3); color: #4ade80; }
+
+        /* Emma specific */
+        .card-emma .video-placeholder::before {
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(245, 158, 11, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(251, 191, 36, 0.4) 0%, transparent 50%);
+        }
+        .card-emma .character-tag { background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.3); color: #fbbf24; }
+
+        /* Lucy specific */
+        .card-lucy .video-placeholder::before {
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(236, 72, 153, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(219, 39, 119, 0.4) 0%, transparent 50%);
+        }
+        .card-lucy .character-tag { background: rgba(236, 72, 153, 0.15); border-color: rgba(236, 72, 153, 0.3); color: #f472b6; }
+
+        /* Experience Section */
+        .experience {
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            padding: 5rem 3rem;
+            margin: 4rem auto;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--glow-purple) 0%, transparent 60%);
+            opacity: 0.3;
+        }
+
+        .experience-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .experience-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-text p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-features {
+            list-style: none;
+        }
+
+        .experience-features li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(139, 92, 246, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent-purple);
+        }
+
+        .experience-visual {
+            position: relative;
+        }
+
+        .screen-mockup {
+            background: var(--bg-primary);
+            border-radius: 20px;
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+        }
+
+        .screen-inner {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+            border-radius: 12px;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screen-inner::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 50% 50%, var(--glow-purple) 0%, transparent 60%);
+            opacity: 0.4;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+        }
+
+        .screen-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            text-align: center;
+            z-index: 1;
+        }
+
+        /* Order Form Section */
+        .order-section {
+            padding: 6rem 2rem;
+        }
+
+        .order-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 30px;
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .order-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-main);
+        }
+
+        .order-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .order-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .order-header p {
+            color: var(--text-secondary);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .form-group label .required {
+            color: var(--accent-pink);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: 'Heebo', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 20px var(--glow-purple);
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23a0a0b0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 1rem center;
+            padding-left: 3rem;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .character-select {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .character-option {
+            position: relative;
+        }
+
+        .character-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .character-option label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .character-option input:checked + label {
+            border-color: var(--accent-purple);
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .character-option label:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+
+        .character-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .character-option span {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.25rem;
+            background: var(--gradient-main);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-family: 'Heebo', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px var(--glow-purple);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-link {
+            color: var(--accent-purple);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .experience-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .character-select {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .order-container {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Form Success State */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .form-success.active {
+            display: block;
+        }
+
+        .form-success svg {
+            width: 80px;
+            height: 80px;
+            stroke: var(--accent-purple);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-success h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-success p {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="stars"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">VIA</div>
+        <!-- Replace with actual logo: <img src="your-logo.png" alt="VIA" class="logo-img"> -->
+        <nav>
+            <a href="#characters">הדמויות</a>
+            <a href="#experience">החוויה</a>
+            <a href="#order">הזמנה</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">✦ חדש ב-VIA ✦</span>
+            <h1>הכניסה שתזכרו לנצח</h1>
+            <p>סרטוני AI קולנועיים על מסך הענק של VIA — קבלת פנים שתשאיר את האורחים פעורי פה</p>
+            <a href="#order" class="hero-cta">
+                <span>בחרו את הסרטון שלכם</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters">
+        <div class="section-header">
+            <h2>הכירו את הדמויות</h2>
+            <p>כל דמות מביאה עולם ויזואלי ייחודי לסרטון שלכם</p>
+        </div>
+        <div class="characters-grid">
+            <!-- Nova -->
+            <div class="character-card card-nova">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/J4J4VFKEQvo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="character-info">
+                    <h3 class="character-name">נובה</h3>
+                    <p class="character-desc">מלכת הגלקסיות. מסע בין כוכבים ואור קוסמי שמאיר את הדרך לאהבה אינסופית.</p>
+                    <span class="character-tag">✧ גלקסיות וכוכבים</span>
+                </div>
+            </div>
+
+            <!-- Gaia -->
+            <div class="character-card card-gaia">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/L4J8KAA6-zM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="character-info">
+                    <h3 class="character-name">גאיה</h3>
+                    <p class="character-desc">שומרת היער. טבע פראי, יערות קסומים ואנרגיה אורגנית שמחברת בין נשמות.</p>
+                    <span class="character-tag">❧ שומרת היער</span>
+                </div>
+            </div>
+
+            <!-- Emma -->
+            <div class="character-card card-emma">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/oXr3OhJ06mw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="character-info">
+                    <h3 class="character-name">אמה</h3>
+                    <p class="character-desc">אלכימאית הזמן. מסע דרך עידנים, שעונים מיסטיים ורגעים שנעצרים לנצח.</p>
+                    <span class="character-tag">⧗ אלכימאית הזמן</span>
+                </div>
+            </div>
+
+            <!-- Lucy -->
+            <div class="character-card card-lucy">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/KUNkoyZu6_g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="character-info">
+                    <h3 class="character-name">לוסי</h3>
+                    <p class="character-desc">מתוך הלוסיד דרימז. עולם של חלומות, צבעים זורמים ומציאות שמתעקמת.</p>
+                    <span class="character-tag">◎ לוסיד דרימז</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <div class="experience" id="experience">
+        <div class="experience-content">
+            <div class="experience-text">
+                <h2>חוויה שלא תשכחו</h2>
+                <p>ברגע שהמסך הענק של VIA נדלק, הקהל מרגיש שמשהו מיוחד עומד לקרות. סרטון AI בהתאמה אישית שמביא את הסיפור שלכם לחיים.</p>
+                <ul class="experience-features">
+                    <li>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <span>מסך LED ענק באיכות קולנועית</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                            </svg>
+                        </div>
+                        <span>סרטון בהתאמה אישית עם השמות שלכם</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg>
+                        </div>
+                        <span>אורחים פעורי פה מרגע הכניסה</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+                                <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+                                <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <span>טכנולוגיית AI מתקדמת</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="experience-visual">
+                <div class="screen-mockup">
+                    <div class="screen-inner">
+                        <div class="screen-text">
+                            ״שרה & דניאל״<br>
+                            <small style="opacity: 0.6; font-size: 0.8rem;">השם שלכם כאן</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Section -->
+    <section class="order-section" id="order">
+        <div class="order-container">
+            <div class="order-header">
+                <h2>בחרו את הסרטון שלכם</h2>
+                <p>מלאו את הפרטים ונתחיל לעבוד על הסרטון שלכם</p>
+            </div>
+            <form id="orderForm" action="https://formsubmit.co/itsemmanoel@gmail.com" method="POST">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_subject" value="הזמנת סרטון AI חדשה - VIA">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>שם החתן <span class="required">*</span></label>
+                        <input type="text" name="groom_name" required placeholder="הכניסו את שם החתן">
+                    </div>
+                    <div class="form-group">
+                        <label>שם הכלה <span class="required">*</span></label>
+                        <input type="text" name="bride_name" required placeholder="הכניסו את שם הכלה">
+                    </div>
+                    <div class="form-group">
+                        <label>תאריך האירוע <span class="required">*</span></label>
+                        <input type="date" name="event_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>טלפון ליצירת קשר</label>
+                        <input type="tel" name="phone" placeholder="050-0000000">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>בחרו דמות <span class="required">*</span></label>
+                        <div class="character-select">
+                            <div class="character-option">
+                                <input type="radio" name="character" id="char-nova" value="נובה" required>
+                                <label for="char-nova">
+                                    <div class="character-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">✧</div>
+                                    <span>נובה</span>
+                                </label>
+                            </div>
+                            <div class="character-option">
+                                <input type="radio" name="character" id="char-gaia" value="גאיה">
+                                <label for="char-gaia">
+                                    <div class="character-icon" style="background: linear-gradient(135deg, #22c55e, #10b981);">❧</div>
+                                    <span>גאיה</span>
+                                </label>
+                            </div>
+                            <div class="character-option">
+                                <input type="radio" name="character" id="char-emma" value="אמה">
+                                <label for="char-emma">
+                                    <div class="character-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">⧗</div>
+                                    <span>אמה</span>
+                                </label>
+                            </div>
+                            <div class="character-option">
+                                <input type="radio" name="character" id="char-lucy" value="לוסי">
+                                <label for="char-lucy">
+                                    <div class="character-icon" style="background: linear-gradient(135deg, #ec4899, #db2777);">◎</div>
+                                    <span>לוסי</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>צבעים מועדפים</label>
+                        <input type="text" name="colors" placeholder="לדוגמה: זהב וכחול כהה">
+                    </div>
+                    <div class="form-group">
+                        <label>סגנון מוזיקה</label>
+                        <select name="music_style">
+                            <option value="">בחרו סגנון (לא חובה)</option>
+                            <option value="אפי/דרמטי">אפי / דרמטי</option>
+                            <option value="רומנטי">רומנטי</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>בקשות מיוחדות לטקסט</label>
+                        <textarea name="special_requests" placeholder="יש לכם משפט מיוחד? משהו משמעותי להגיד? רוצים שנחזור אליכם? זה המקום לספר לנו..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">שליחת הזמנה</button>
+            </form>
+            <div class="form-success" id="formSuccess">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <h3>ההזמנה נשלחה בהצלחה!</h3>
+                <p>נחזור אליכם בהקדם לתיאום הפרטים</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">VIA</div>
+        <p class="footer-text">
+            סרטוני AI לחתונות | <a href="https://via-events.co.il" class="footer-link" target="_blank">via-events.co.il</a>
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling (for visual feedback)
+        // Note: FormSubmit will handle the actual submission
+        const form = document.getElementById('orderForm');
+        form.addEventListener('submit', function(e) {
+            // The form will submit to FormSubmit
+            // This is just for any additional handling you might want
+        });
+
+        // Video placeholder click handling
+        document.querySelectorAll('.play-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const placeholder = this.closest('.video-placeholder');
+                // Here you can add logic to play embedded videos
+                // For now, it's just a visual placeholder
+                alert('החליפו את ה-placeholder הזה עם embed של יוטיוב או Vimeo');
+            });
+        });
+    </script>
+</body>
+</html>
